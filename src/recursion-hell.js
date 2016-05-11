@@ -130,6 +130,9 @@ function exp(base, pow) {
  * Returns the nth number of the fibonacci sequence.
  */
 function fib(n) {
+	if(n < 0) return undefined;
+	if(n < 2) return n;
+	return fib(n - 1) + fib(n - 2);
 }
 
 /**
@@ -140,6 +143,9 @@ function fib(n) {
  * @returns {boolean}
  */
 function even(n) {
+	if(n === 1) return false;
+	if(n === 0) return true;
+	return n < 0 ? even(n + 2) : even(n - 2);
 }
 
 /**
