@@ -121,6 +121,7 @@ function arraySum(arr) {
  *   exp(8, 2); // 64
  */
 function exp(base, pow) {
+	return pow ? base * exp(base, pow - 1) : 1;
 }
 
 /**
