@@ -7,6 +7,12 @@
  *   factorial(5); // 120
  */
 function factorial(n) {
+	if(n < 0)
+		return undefined;
+	if(n === 0)
+		return 1;
+	else
+		return n * factorial(n - 1);
 }
 
 /**
@@ -18,6 +24,14 @@ function factorial(n) {
  * @returns {boolean}
  */
 function palindrome(str) {
+	if(str.length < 2)
+		return true;
+	else {
+		if(str[0] === str[str.length - 1])
+			return palindrome(str.slice(1, -1));
+		else
+			return false;
+	}
 }
 
 /**
@@ -28,6 +42,10 @@ function palindrome(str) {
  *   stringReverse('testing'); // 'gnitset'
  */
 function stringReverse(str) {
+	if(str.length === 1)
+		return str;
+	else
+		return stringReverse(str.slice(1)) + str[0];
 }
 
 /**
@@ -42,6 +60,8 @@ function stringReverse(str) {
  *   // ['A', 'B', 'C']
  */
 function map(arr, fn) {
+	if(arr.length === 0) return [];
+	return [fn(arr[0])].concat(map(arr.slice(1), fn));
 }
 
 /**
@@ -50,6 +70,22 @@ function map(arr, fn) {
  * Returns the greatest common divisor (gcd) of two positive numbers.
  */
 function gcd(x, y) {
+	if(x === 0 || y === 0)
+		return "No match";
+
+	if(x <= y) {
+		if(y % x === 0)
+			return x;
+		else
+			return gcd(x - 1, y);
+	}
+
+	else if(y <= x) {
+		if(x % y === 0)
+			return y;
+		else
+			return gcd(x, y - 1);
+	}
 }
 
 /**
