@@ -96,6 +96,8 @@ function gcd(x, y) {
  *   inBetween(4, 8); // [5, 6, 7]
  */
 function inBetween(x, y) {
+	if(y - x <= 1) return [];
+	return [x + 1].concat(inBetween(x + 1, y));
 }
 
 /**
@@ -107,6 +109,7 @@ function inBetween(x, y) {
  *   arraySum([5, 2, 6]); // 13
  */
 function arraySum(arr) {
+	return arr.length === 0 ? 0 : arr[0] + arraySum(arr.slice(1));
 }
 
 /**
